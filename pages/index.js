@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
 export default function Home() {
-
-const [inputs, setInputs] = useState({
+    const [inputs, setInputs] = useState({
 		name: '',
 		email: '',
 		message: '',
@@ -68,7 +67,7 @@ const [isActive, setActive] = useState(false);
   return (
     <>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-    <div id="home"></div>
+      <div id="home"></div>
     <div className="relative bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
             <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">

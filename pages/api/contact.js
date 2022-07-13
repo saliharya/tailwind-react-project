@@ -8,7 +8,7 @@ export default async (req, res) => {
     secure: true,
     auth: {
       user: "formportarya@gmail.com",
-      pass: "yooqaogxefjjmrmk"
+      pass: "dknbgovpqjolxsyq"
     }
   });
 
