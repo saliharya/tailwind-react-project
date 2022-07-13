@@ -59,18 +59,10 @@ const [inputs, setInputs] = useState({
 		}
 	}
 
-const [isActive, setActive] = useState("false");
+const [isActive, setActive] = useState(false);
 
   const handleToggle = () => {
     setActive(!isActive);
-};
-
-  const [isScroll, setScroll] = useState("false");
-
-  const pageOnScroll = () => {
-    if (window.pageYOffset > header.offsetTop) {
-        setScroll(!isScroll);
-    }
 };
 
   return (
@@ -88,7 +80,7 @@ const [isActive, setActive] = useState("false");
                 <div>
                     <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
                     </div>
-                    <header className={`bg-transparent absolute top-0 left-0 w-full flex items-center z-100 ${isScroll ? "navbar-fixed" : ""}`}>
+                    <header className="bg-transparent absolute top-0 left-0 w-full flex items-center z-100 navbar-fixed">
                         <div className="container">
                             <div className="flex relative">
                                 <div className="px-4">
@@ -98,7 +90,7 @@ const [isActive, setActive] = useState("false");
                                 </div>
                                 <div className="flex items-center px-4">
                                     <button id="hamburger" onClick={handleToggle} name="hamburger" type="button"
-                                        className={`block absolute right-4 lg:hidden ${isActive ? "" : "hamburger-active"}`}>
+                                        className={`block absolute right-4 lg:hidden ${isActive ? "hamburger-active" : ""}`}>
                                         <span
                                             className="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
                                         <span className="hamburger-line transition duration-300 ease-in-out"></span>
@@ -106,7 +98,7 @@ const [isActive, setActive] = useState("false");
                                             className="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
                                     </button>
                                     <nav id="nav-menu" onClick={handleToggle}
-                                        className={`absolute py-5 bg-white shadow-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${isActive ? "hidden" : ""}`}>
+                                        className={`absolute py-5 bg-white shadow-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${isActive ? "" : "hidden"}`}>
                                         <ul className="block lg:flex">
                                             <li className="group">
                                                 <a href="#home"
