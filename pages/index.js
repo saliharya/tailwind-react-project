@@ -59,6 +59,20 @@ const [inputs, setInputs] = useState({
 		}
 	}
 
+const [isActive, setActive] = useState("false");
+
+  const handleToggle = () => {
+    setActive(!isActive);
+};
+
+  const [isScroll, setScroll] = useState("false");
+
+  const pageOnScroll = () => {
+    if (window.pageYOffset > header.offsetTop) {
+        setScroll(!isScroll);
+    }
+};
+
   return (
     <>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
@@ -74,7 +88,7 @@ const [inputs, setInputs] = useState({
                 <div>
                     <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
                     </div>
-                    <header className="bg-transparent absolute top-0 left-0 w-full flex items-center z-100">
+                    <header className={`bg-transparent absolute top-0 left-0 w-full flex items-center z-100 ${isScroll ? "navbar-fixed" : ""}`}>
                         <div className="container">
                             <div className="flex relative">
                                 <div className="px-4">
@@ -83,16 +97,16 @@ const [inputs, setInputs] = useState({
                                         Team</a>
                                 </div>
                                 <div className="flex items-center px-4">
-                                    <button id="hamburger" name="hamburger" type="button"
-                                        className="block absolute right-4 lg:hidden" >
+                                    <button id="hamburger" onClick={handleToggle} name="hamburger" type="button"
+                                        className={`block absolute right-4 lg:hidden ${isActive ? "" : "hamburger-active"}`}>
                                         <span
                                             className="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
                                         <span className="hamburger-line transition duration-300 ease-in-out"></span>
                                         <span
                                             className="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
                                     </button>
-                                    <nav id="nav-menu"
-                                        className="hidden absolute py-5 bg-white shadow-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                                    <nav id="nav-menu" onClick={handleToggle}
+                                        className={`absolute py-5 bg-white shadow-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${isActive ? "hidden" : ""}`}>
                                         <ul className="block lg:flex">
                                             <li className="group">
                                                 <a href="#home"
@@ -604,7 +618,7 @@ const [inputs, setInputs] = useState({
                         </div>
                         <div className="w-full px-4 lg:w-1/2">
                             <div className="flex items-center justify-center">
-                                <a href="https://www.linkedin.com/in/aryagumilang" target="_blank"
+                                <a href="https://www.linkedin.com/in/aryagumilang" target="_blank" rel="noopener noreferrer"
                                     className="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
                                     <svg role="img" width="20" className="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -616,7 +630,7 @@ const [inputs, setInputs] = useState({
                                     <path
                                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </a>
-                                <a href="https://www.facebook.com/arya2001/" target="_blank"
+                                <a href="https://www.facebook.com/arya2001/" target="_blank" rel="noopener noreferrer"
                                     className="w-9 h-9 mr-3 rounded-full
                                                             flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
                                     <svg role="img" width="20" className="fill-current" viewBox="0 0 24 24"
@@ -626,7 +640,7 @@ const [inputs, setInputs] = useState({
                                             d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                     </svg>
                                 </a>
-                                <a href="https://www.instagram.com/saliharya/" target="_blank"
+                                <a href="https://www.instagram.com/saliharya/" target="_blank" rel="noopener noreferrer"
                                     className="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
                                     <svg role="img" width="20" className="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -659,7 +673,7 @@ const [inputs, setInputs] = useState({
                         </div>
                         <div className="w-full px-4 lg:w-1/2">
                             <div className="flex items-center justify-center">
-                                <a href="https://www.facebook.com/ezha.sefiyanty" target="_blank"
+                                <a href="https://www.facebook.com/ezha.sefiyanty" target="_blank" rel="noopener noreferrer"
                                     className="w-9 h-9 mr-3 rounded-full
                                                                             flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
                                     <svg role="img" width="20" className="fill-current" viewBox="0 0 24 24"
@@ -669,7 +683,7 @@ const [inputs, setInputs] = useState({
                                             d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                     </svg>
                                 </a>
-                                <a href="http://instagram.com/reza_sfxyzz" target="_blank"
+                                <a href="http://instagram.com/reza_sfxyzz" target="_blank" rel="noopener noreferrer"
                                     className="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white">
                                     <svg role="img" width="20" className="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -725,8 +739,8 @@ const [inputs, setInputs] = useState({
         <div className="container">
             <div className="w-full pt-10 border-t border-slate-700">
                 <p className="font-medium text-xs text-slate-500 text-center">Web Developers : <a
-                        href="https://www.instagram.com/saliharya/" target="_blank" className="font-bold text-primary">Salih
-                        Arya Gumilang</a> & <a href="http://instagram.com/reza_sfxyzz" target="_blank"
+                        href="https://www.instagram.com/saliharya/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary">Salih
+                        Arya Gumilang</a> & <a href="http://instagram.com/reza_sfxyzz" target="_blank" rel="noopener noreferrer"
                         className="font-bold text-primary">Reza Sefiyanti</a></p>
             </div>
         </div>
